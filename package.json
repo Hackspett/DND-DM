@@ -1,0 +1,33 @@
+{
+  "name": "dnd-dm",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "scripts": {
+    "dev": "concurrently -k -n api,web -c yellow,green \"npm:dev:api\" \"npm:dev:web\"",
+    "dev:api": "tsx watch server/index.ts",
+    "dev:web": "vite",
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig.server.json && vite build",
+    "start": "node dist-server/server/index.js",
+    "preview": "vite preview",
+    "test": "tsx --test"
+  },
+  "dependencies": {
+    "@mantine/core": "^9.8.1",
+    "@vitejs/plugin-react": "latest",
+    "react": "latest",
+    "react-dom": "latest"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "concurrently": "^9.0.0",
+    "tsx": "^4.0.0",
+    "typescript": "latest",
+    "vite": "latest"
+  }
+}
